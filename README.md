@@ -12,7 +12,7 @@ Add this to your `build.sbt`
 In your application, you need to pass the `MdcAsyncExecutor` to your database setup:
 
 ```scala
-  val db = Database.forDataSource(connectionPool, MdcAsyncExecutor.apply(10)) // using 10 threads
+  val db = Database.forDataSource(connectionPool, MdcAsyncExecutor.apply("Database", 10)) // using 10 threads
 ```
 
 Voila!

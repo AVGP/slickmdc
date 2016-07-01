@@ -13,7 +13,12 @@ class MdcExecutionContext(executionContext: ExecutionContext) extends ExecutionC
       def run(): Unit = {
         // copy caller thread diagnostic context to execution thread
         if(callerMdc != null) MDC.setContextMap(callerMdc)
-        runnable.run()
+        try {
+          runnable.run()
+        } finally {
+          // the thread might be reused, so we clean up for the next use
+          MDC.clear()
+        }
       }
     })
   }
