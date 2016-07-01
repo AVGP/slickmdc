@@ -6,7 +6,7 @@
 Add this to your `build.sbt`
 
 ```scala
-  libraryDependencies ++= "de.geekonaut" %% "slickmdc"  % "1.0.0",
+  libraryDependencies ++= "de.geekonaut" %% "slickmdc"  % "1.0.0"
 ```
 
 In your application, you need to pass the `MdcAsyncExecutor` to your database setup:
